@@ -1,0 +1,25 @@
+From c2094ce30d49567f2fe53ac097a907ff49508d0e Mon Sep 17 00:00:00 2001
+From: Tyler Fahey <twfahey1@gmail.com>
+Date: Sat, 1 Feb 2020 19:20:33 -0600
+Subject: [PATCH] Set hardcoded root
+
+---
+ bin/drupal.php | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git bin/drupal.php bin/drupal.php
+index 6070fc63..0bb7206a 100644
+--- bin/drupal.php
++++ bin/drupal.php
+@@ -47,6 +47,8 @@ $argvInputReader = new ArgvInputReader();
+ $root = $argvInputReader->get('root', getcwd());
+ 
+ $drupalFinder = new DrupalFinder();
++$customRoot = '/var/www/web';
++$root = $customRoot;
+ if (!$drupalFinder->locateRoot($root)) {
+     $io->error('DrupalConsole must be executed within a Drupal Site.');
+ 
+-- 
+2.20.1 (Apple Git-117)
+
